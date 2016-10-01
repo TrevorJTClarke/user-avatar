@@ -1,0 +1,115 @@
+/**
+ * avatar
+ *
+ * A re-usable avatar component with multiple styles.
+ *
+ * @version 1.0.1
+ * @keywords avatar, atom, person, user, image, circle
+ * @note typically used as a web component
+ *
+ * @markup
+ * <div class="avatar avatar-lg">
+ *   <img src="img/default.jpg">
+ * </div>
+ *
+ * @options avatar-border, border-light, border-dark, avatar-initials
+ * @default border-light, avatar-md
+ *
+ * @stType atom
+ * @stClass st-avatar-wrap
+*/
+$teal: teal !default;
+$white: white !default;
+$grey05: grey !default;
+$black: black !default;
+$avatar-base-size: 48px;
+$avatar-border-size: 2px;
+
+// Avatar sizing
+$avatar-sizes: (
+  xs: $avatar-base-size - 20,
+  sm: $avatar-base-size - 12,
+  md: $avatar-base-size,
+  lg: $avatar-base-size + 37,
+  xl: $avatar-base-size * 3
+);
+
+// Generates the sizing and other variables
+@mixin create-avatar($title, $size, $margin: 5px, $has-border: true) {
+  user-avatar,
+  .avatar {
+    background: $grey05;
+    border: 0;
+    border-radius: 50%;
+    box-sizing: border-box;
+    display: block;
+    height: $avatar-base-size;
+    margin: $margin;
+    overflow: hidden;
+    position: relative;
+    width: $avatar-base-size;
+    z-index: 10;
+
+    img {
+      display: block;
+      margin: 0;
+      position: relative;
+      width: 100%;
+      z-index: 20;
+    }
+
+    &.avatar-#{$title} {
+      height: $size;
+      max-height: $size;
+      max-width: $size;
+      width: $size;
+
+      img {
+        height: $size;
+        max-height: $size;
+        max-width: $size;
+        width: $size;
+      }
+    }
+  }
+}
+
+@each $size-name, $value in $avatar-sizes {
+  @include create-avatar($size-name, $value, 5px, true);
+}
+
+// exceptions
+user-avatar,
+.avatar {
+
+  &.avatar-border {
+    border: 2px solid transparentize($white, .9);
+
+    &.border-dark {
+      border: 2px solid transparentize($black, .9);
+    }
+
+    img {
+      margin: -$avatar-border-size 0 0 0-$avatar-border-size;
+    }
+  }
+
+  &.avatar-initials {
+
+    .initials {
+      color: $teal;
+      font-smoothing: antialiased;
+      letter-spacing: -2px;
+      margin: 12px 0 0 -1px;
+      position: relative;
+      text-align: center;
+      text-transform: uppercase;
+      z-index: 999;
+    }
+
+    img {
+      display: none;
+    }
+  }
+
+}

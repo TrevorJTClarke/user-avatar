@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>avatar</title>
+<!-- <link rel="stylesheet" href="css/avatar.css"> -->
+</head>
+<body>
+
+  <!-- New -->
+  <user-avatar></user-avatar>
+
+  <user-avatar size="sm" src="https://avatars1.githubusercontent.com/u/2633184?v=3&s=460"></user-avatar>
+  <user-avatar id="userAvatar" size="xs" border="dark" src="https://avatars1.githubusercontent.com/u/2633184?v=3&s=460"></user-avatar>
+
+
+  <script src="js/avatar.js" type="text/javascript" async></script>
+  <script type="text/javascript">
+    setTimeout(function(){
+      var ava = document.getElementById('userAvatar');
+      ava.setAttribute('src', "https://cdn.hackaday.io/images/resize/100x100/4064901458199974757.png")
+    }, 2000);
+    setTimeout(function(){
+      var ava = document.getElementById('userAvatar');
+      ava.setAttribute('size', 'xl')
+    }, 1000);
+  </script>
+</body>
+</html>

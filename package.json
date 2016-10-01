@@ -1,0 +1,36 @@
+{
+  "name": "avatar",
+  "version": "0.0.1",
+  "description": "A component for the handsome imagery of the user.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "test": "echo \"No tests yet!\" && exit 1",
+    "css": "node-sass --output-style compressed --source-comments false --include-path scss src/**/*.scss src/css/avatar.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TrevorJTClarke/avatar.git"
+  },
+  "keywords": [
+    "css",
+    "sass",
+    "responsive",
+    "desktop",
+    "components",
+    "website"
+  ],
+  "author": "@trevorjtclarke",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TrevorJTClarke/avatar/issues"
+  },
+  "homepage": "https://github.com/TrevorJTClarke/avatar#readme",
+  "devDependencies": {
+    "browser-sync": "^2.7.12",
+    "docblock": "^0.3.1",
+    "gulp": "^3.9.0",
+    "gulp-sass": "^2.3.2",
+    "node-sass": "^3.8.0"
+  }
+}
